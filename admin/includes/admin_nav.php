@@ -126,7 +126,17 @@
                         <a href="categories.php"><i class="fa fa-fw fa-dashboard"></i>Job Categories</a>
                     </li>
 
-
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Jobs <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="jobs.php">View all jobs</a>
+                            </li>
+                            <li>
+                                <a href="jobs.php?source=add_jobs">Add new job</a>
+                            </li>
+                        </ul>
+                    </li>
 
                     
                     <li>
