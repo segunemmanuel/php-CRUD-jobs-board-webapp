@@ -37,24 +37,50 @@
 
 </form>
 </div>
+
+
+
 <div class="col-lg-6">
-<table class="table table-light">
-    <thead class="thead-light">
-        <tr>
-            <th>#</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td></td>
-        </tr>
-    </tbody>
-    <tfoot>
-        <tr>
-            <th>#</th>
-        </tr>
-    </tfoot>
+<table class="table table-dark table-hover">
+<thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <?php
+
+$query="SELECT * FROM category";
+$result=mysqli_query($connection,$query);
+if(!$result){
+    die("Connection failed". mysqli_error($connection));
+}
+
+while($row=mysqli_fetch_array($result)){
+    $cat_id=$row['cat_id'];
+    $cat_title=$row['cat_title'];
+    echo "<tr>";
+    echo "<td>{$cat_id}</td>";
+    echo "<td>{$cat_title}</td>";
+    echo "<td><a href='categories.php?delete={$cat_id}'>Delete</a></td>";
+    echo "<td><a href='categories.php?edit={$cat_id}'>Edit</a></td>";
+
+
+    echo "</tr>";
+}
+?>
+
+
+
+  </tbody>
 </table>
+
+
+
 </div>
 
 
