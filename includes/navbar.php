@@ -1,3 +1,4 @@
+<?php include 'includes/db.php';?>
 <body>
     <!-- Preloader Start -->
     <div id="preloader-active">
@@ -32,14 +33,37 @@
                                             <li><a href="index.php">Home</a></li>
                                             <li><a href="job_listing.php">Find a Jobs </a></li>
                                             <li><a href="about.php">About</a></li>
-                                            <li><a href="#">Page</a>
+
+
+                                            <li><a href="#">Categories</a>
+                                                <ul class="submenu">
+                                                <?php
+$query="SELECT * FROM category";
+$result=mysqli_query($connection,$query);
+if(!$result){
+    die("Connection failed". mysqli_error($connection));
+}
+while($row=mysqli_fetch_array($result)){
+    $cat_id=$row['cat_id'];
+    $cat_title=$row['cat_title'];
+echo     "<li><a href='category.php?cat=$cat_id'>$cat_title</a></li>";
+}
+?>
+                                                </ul>
+                                            </li>
+
+
+
+                                            
+
+                                            <!-- <li><a href="#">Page</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.php">Blog</a></li>
                                                     <li><a href="single-blog.html">Blog Details</a></li>
                                                     <li><a href="elements.html">Elements</a></li>
                                                     <li><a href="job_details.html">job Details</a></li>
                                                 </ul>
-                                            </li>
+                                            </li> -->
                                             <li><a href="contact.php">Contact</a></li>
                                         </ul>
                                     </nav>
