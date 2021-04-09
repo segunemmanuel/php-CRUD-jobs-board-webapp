@@ -1,58 +1,34 @@
 <?php 
 
 if(isset($_POST['create_job'])){
-
+    $job_category_id = $_POST['category'];
+    $job_company = $_POST['company'];
+    $job_location= $_POST['location'];
+    $job_title = $_POST['title'];
+    $job_salary=$_POST['salary'];
+    $job_image=$_FILES['image']['name'];
+    $job_image_temp=$_FILES['image']['tmp_name'];
+    $job_content= $_POST['job_content'];
+    $job_status= $_POST['status'];
+    $job_type= $_POST['type'];
+    $job_date=date('d-m-y');
+    move_uploaded_file($job_image_temp,"../images/$job_image");
     
-    $job_title = ($_POST['title']);
-    $job_category_id = ($_POST['category']);
-    $job_company = ($_POST['company']);
-    $job_location= ($_POST['location']);
-    $job_title = ($_POST['title']);
+    $query="INSERT INTO jobs(job_title,job_category_id,job_company,job_location,job_date,job_salary,job_image,job_content,job_type,job_status) ";
+    $query.="VALUES ('{$job_title}','{$job_category_id}','{$job_company}','{$job_location}',now(),'{$job_salary}','{$job_image}','{$job_content}','{$job_type}','{$job_status}') ";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$result=mysqli_query($connection,$query);
+if(!$result){
+    die("Failed".mysqli_error("$conenction"));
+}
+$job_id= mysqli_insert_id($connection );
+echo "<p class='bg-success'> Job added:" . " ". "<a href='../jobs.php?c_id={$job_id}'>View job </a>or <a href='jobs.php'>Edit More </a> </p>";
+}
     
-    $post_user=($_POST['post_user']);
-    $post_tag=$_POST['post_tag'];
-    $post_category_id=$_POST['post_category'];
-    $post_status=$_POST['post_status'];
-    $job_image=$_FILES['post_image']['name'];
-    $post_image_temp=$_FILES['post_image']['tmp_name'];
-    $post_content=$_POST['content'];
-    $post_date=date('d-m-y');
 
-    move_uploaded_file($post_image_temp,"../images/$post_image");
 ?>
 
-
 <h3 class="text-center">Add a new job posting</h3>
-
-
-
-
-
-
-
 <form action="" method="post" enctype="multipart/form-data">
 <div class="form-group">
     <label for="my-input">Title</label>
@@ -83,49 +59,84 @@ while($row=mysqli_fetch_array($result)){
 </div>
 <div class="form-group">
     <label for="my-input">Choose Location</label>
-    <select name="states" id="select" class="form-control">
+    <select name="location" id="select" class="form-control">
+    <option>ABUJA FCT</option>
+<option>ABIA</option>
+<option>ADAMAWA</option>
+<option>AKWA IBOM</option>
+<option>ANAMBRA</option>
+<option>BAUCHI</option>
+<option>BAYELSA</option>
+<option>BENUE</option>
+<option>BORNO</option>
+<option>CROSS RIVER</option>
+<option>DELTA</option>
+<option>EBONYI</option>
+<option>EDO</option>
+<option>EKITI</option>
+<option>ENUGU</option>
+<option>GOMBE</option>
+<option>IMO</option>
+<option>JIGAWA</option>
+<option>KADUNA</option>
+<option>KANO</option>
+<option>KATSINA</option>
+<option>KEBBI</option>
+<option>KOGI</option>
+<option>KWARA</option>
+<option>LAGOS</option>
+<option>NASSARAWA</option>
+<option>NIGER</option>
+<option>OGUN</option>
+<option>ONDO</option>
+<option>OSUN</option>
+<option>OYO</option>
+<option>PLATEAU</option>
+<option>RIVERS</option>
+<option>SOKOTO</option>
+<option>TARABA</option>
+<option>YOBE</option>
+<option>ZAMFARA</option>
 </select>
 </div>
-<div class="form-group">
-    <label for="my-input">Date</label>
-    <input id="my-input" class="form-control" type="text" name="date">
-</div>
-
-
 <div class="form-group">
     <label for="my-input">Salary</label>
     <input id="my-input" class="form-control" type="text" name="salary">
 </div>
-
-
-
 <div class="form-group">
     <label for="my-input">Edit image</label>
     <input id="my-input" class="form-control" type="file" name="image">
 </div>
-
-
 <div class="form-group">
     <label for="my-input">Description</label>
     <textarea  id="body" name="job_content"  cols="30" class="form-control"  rows="10"> 
 </textarea>
     
 </div>
-
-
 <div class="form-group">
     <label for="my-input">Job type</label>
-    <input id="my-input" class="form-control" type="text" name="type">
+    <select name="type" id="" class="form-control form-select form-select-sm btn btn-mini">
+    <option value="none"></option>
+    <option value="">Full-time</option>
+<option value="">Part-time</option>
+<option value="">Contract</option>
+    </select>
 </div>
+
 
 
 <div class="form-group">
     <label for="my-input">Job status</label>
-    <input id="my-input" class="form-control" type="text" name="status">
-</div>
+    <select name="status" id="" class="form-control">
+<option value="">Draft</option>
+<option value="">Approve</option>
 
+    
+    </select>
+  
+</div>
 <div class="form-group">
-<button type="submit" class="btn btn-primary" name="creat_job">Submit</button>
+<button type="submit" class="btn btn-primary" name="create_job">Submit</button>
 </div>
 
 </form>

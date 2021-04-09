@@ -82,6 +82,7 @@ while($row=mysqli_fetch_array($result)){
 <div class="form-group">
     <label for="my-input">Description</label>
     <textarea  id="body" name="job_content"  cols="30" class="form-control"  value="<?php echo $job_content; ?> " rows="10"> 
+    <?php echo $job_content; ?>
 </textarea>
     
 </div>
