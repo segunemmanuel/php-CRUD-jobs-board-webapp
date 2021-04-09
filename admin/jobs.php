@@ -1,6 +1,8 @@
 <?php include './includes/admin_head.php';?>
 <div>
 <?php include './includes/admin_nav.php';?>
+<?php ob_start();?>
+
           <div id="page-wrapper">
             <div class="container-fluid">
 
@@ -20,6 +22,52 @@
                             </li>
                         </ol>
                     </div>
+
+
+
+
+
+
+
+
+                    <?php
+
+
+if(isset($_GET['source'])){
+    
+$source=$_GET['source'];
+}
+else{
+
+    $source='';
+}
+switch($source){
+    case 'add_jobs';
+    include "includes/add_jobs.php";
+
+    break;
+
+    case 'edit_jobs';
+    include "includes/edit_jobs.php";
+    
+    break;
+    
+    default:
+    include "includes/view_jobs.php";
+
+
+
+ 
+}
+?>
+
+
+
+
+
+
+
+                    
                 </div>
                 <!-- /.row -->
 
