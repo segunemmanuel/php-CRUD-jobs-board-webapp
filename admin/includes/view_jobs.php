@@ -3,6 +3,7 @@
         <table class="table table-responsive table-hover table-bordered">
   <thead">
     <tr>
+      <th scope="col">S/N</th>
       <th scope="col">JOB ID</th>
       <th scope="col">TITLE</th>
       <th scope="col">COMPANY</th>
@@ -21,10 +22,11 @@
 $query= "SELECT * FROM jobs";
 $result=mysqli_query($connection,$query);
 
+
 if(!$result){
     die("failed".mysqli_error($connection));
 }
-
+$rs=mysqli_num_rows($result);
 while($row = mysqli_fetch_assoc($result)){
     $job_id= $row['job_id'];
     $job_location= $row['job_location'];
@@ -37,11 +39,14 @@ while($row = mysqli_fetch_assoc($result)){
     $job_type= $row['job_type'];
     $job_status= $row['job_status'];
     $job_views= $row['job_view'];
-    
     $number = 1234.56;
     $english_format_number = number_format($job_salary);
 // 1,235
-    echo "<tr>";
+
+echo "<tr>";
+for($i=0;$i<=$rs;$i++);{
+    echo "<td> $i </td>";
+} 
     echo "<td>{$job_id}</td>";
     echo "<td>{$job_title} </td>";
     echo "<td>{$job_company} </td>";
