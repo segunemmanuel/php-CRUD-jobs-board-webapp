@@ -23,6 +23,7 @@
                                     <span class="pull-left">
                                         <img class="media-object" src="http://placehold.it/50x50" alt="">
                                     </span>
+                                    
                                     <div class="media-body">
                                         <h5 class="media-heading">
                                             <strong>John Smith</strong>
@@ -115,7 +116,16 @@
                         </li>
                     </ul>
                 </li>
+<li>
+<a href="../index.php">Website Homepage</a>
+</li>
+
+
+                
             </ul>
+
+
+            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">

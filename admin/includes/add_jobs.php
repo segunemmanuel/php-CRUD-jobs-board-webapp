@@ -1,5 +1,4 @@
 <?php 
-
 if(isset($_POST['create_job'])){
     $job_category_id = $_POST['category'];
     $job_company = $_POST['company'];
@@ -12,11 +11,9 @@ if(isset($_POST['create_job'])){
     $job_status= $_POST['status'];
     $job_type= $_POST['type'];
     $job_date=date('d-m-y');
-    move_uploaded_file($job_image_temp,"../images/$job_image");
-    
+    move_uploaded_file($job_image_temp,"./admin/images/$job_image");
     $query="INSERT INTO jobs(job_title,job_category_id,job_company,job_location,job_date,job_salary,job_image,job_content,job_type,job_status) ";
     $query.="VALUES ('{$job_title}','{$job_category_id}','{$job_company}','{$job_location}',now(),'{$job_salary}','{$job_image}','{$job_content}','{$job_type}','{$job_status}') ";
-
 $result=mysqli_query($connection,$query);
 if(!$result){
     die("Failed".mysqli_error("$conenction"));
