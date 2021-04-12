@@ -102,15 +102,29 @@ while($row=mysqli_fetch_array($result)){
                         <div class="text-center cv-caption">
                             <p class="pera1">FEATURED TOURS Packages</p>
                             <p class="pera2"> Make a Difference with Your Online Resume!</p>
-
 <?php
+if(isset($_POST['upload'])){
+    $file = $_FILES['cv']['name'];
+    $post_file_temp=$_FILES['cv']['tmp_name'];
+    move_uploaded_file($post_file_temp,"uploads/$file");
+    
+$query= "INSERT INTO files(name)";
+$query.="VALUES('{$file}')";
 
-
+$re=var_dump($query);
+$result=mysqli_query($connection,$query);
+if(!$result){
+    die("Error".mysqli_error($connection));
+}
+else{
+    echo "<script> alert('Upload succesful')</script>";
+}  
+}
 ?>
-
-                            
-                             <input type="file" name="cv" class="cv" placeholder="Upload Your CV" >
-                            
+<form method="post">
+ <input type="file" name="cv"  placeholder="Upload Your CV" >
+ <button type="submit"  name="upload" class="btn btn-primary">Submit</button>
+ </form>
                         </div>
                     </div>
                 </div>
