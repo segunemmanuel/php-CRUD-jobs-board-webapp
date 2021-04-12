@@ -30,10 +30,10 @@ $number = 1234.56;
 <div class="single-job-items mb-30">
                             <div class="job-items">
                                 <div class="company-img">
-                                    <a href="job_details.html"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                                    <a href="job_details.php?source=<?php echo $job_id; ?>"><img src="assets/img/icon/job-list1.png" alt=""></a>
                                 </div>
                                 <div class="job-tittle">
-                                    <a href="job_details.html"><h4><?php echo $job_title?></h4></a>
+                                    <a href="job_details.php?source=<?php echo $job_id; ?>"><h4><?php echo $job_title?></h4></a>
                                     <ul>
                                         <li><?php echo $job_company; ?></li>
                                         <li><i class="fas fa-map-marker-alt"></i><?php echo $job_location; ?></li>
@@ -42,7 +42,7 @@ $number = 1234.56;
                                 </div>
                             </div>
                             <div class="items-link f-right">
-                                <a href="job_details.html"><?php echo $job_type?></a>
+                                <a href="job_details.php?source=<?php echo $job_id; ?>"><?php echo $job_type?></a>
                                 <span><?php echo $job_date; ?></span>
                             </div>
                         </div>

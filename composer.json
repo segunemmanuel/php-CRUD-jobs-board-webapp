@@ -1,0 +1,10 @@
+{
+    "name": "user/jobsgate",
+    "authors": [
+        {
+            "name": "segun",
+            "email": "segunemmanuel46@gmail.com"
+        }
+    ],
+    "require": {}
+}
