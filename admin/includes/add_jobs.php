@@ -112,11 +112,10 @@ while($row=mysqli_fetch_array($result)){
 </div>
 <div class="form-group">
     <label for="my-input">Job type</label>
-    <select name="type" id="" class="form-control form-select form-select-sm btn btn-mini">
-    <option value="none"></option>
-    <option value="">Full-time</option>
-<option value="">Part-time</option>
-<option value="">Contract</option>
+    <select name="type"  class="form-control form-select form-select-sm btn btn-mini">
+<option value="Full-time">Full-time</option>
+<option value="Part-time">Part-time</option>
+<option value="Contract">Contract</option>
     </select>
 </div>
 

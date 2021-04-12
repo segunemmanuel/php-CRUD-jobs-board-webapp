@@ -2,7 +2,7 @@
 <div class="row justify-content-center">
 <div class="col-xl-10">
 <?php
-$query =mysqli_query($connection,"SELECT * FROM jobs");
+$query =mysqli_query($connection,"SELECT * FROM jobs LIMIT 4");
 if(!$query){
     die("Failed".mysqli_error($connection));
 }

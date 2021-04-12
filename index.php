@@ -18,24 +18,7 @@
                         <div class="row">
                             <div class="col-xl-8">
                                 <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form">
-                                        <input type="text" placeholder="Job Tittle or keyword">
-                                    </div>
-                                    <div class="select-form">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">Location BD</option>
-                                                <option value="">Location PK</option>
-                                                <option value="">Location US</option>
-                                                <option value="">Location UK</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="search-form">
-                                        <a href="#">Find job</a>
-                                    </div>	
-                                </form>	
+                              <?php include 'includes/search_form.php';?>
                             </div>
                         </div>
                     </div>
@@ -151,6 +134,19 @@ header("Location:index.php");
     <?php include "includes/homepage_jobs.php";?>
             </div>
         </section>
+<!-- view all jobs -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+    <button type="submit"  class="btn btn-primary post-btn mb-100"><a href="job_listing.php">View more jobs</button>
+                </div>
+    </div>
+            </div>
+            </div>
+
+
+        
         <!-- Featured_job_end -->
         <!-- How  Apply Process Start-->
         <div class="apply-process-area apply-bg pt-150 pb-150" data-background="assets/img/gallery/how-applybg.png">

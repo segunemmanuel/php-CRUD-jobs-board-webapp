@@ -88,15 +88,34 @@ if(isset($_GET['page'])){
  else{
      $page_1=($page*$numberOfPosts)-$numberOfPosts;
  }
- $query="SELECT * FROM jobs";
+
+
+ if(isset($_POST['find_jobs'])){
+    $search = $_POST['search'];
+
+    
+ $query="SELECT * FROM jobs  WHERE job_title LIKE '%$search%' ";
  $rr=mysqli_query($connection,$query);
  $rrr=mysqli_num_rows($rr);
 $count=ceil($rrr/$numberOfPosts);
-$query="SELECT * FROM jobs LIMIT $page_1, $numberOfPosts";
+
+
+
+// search query
+
+
+
+$query="SELECT * FROM jobs  WHERE job_title LIKE '%$search%' LIMIT $page_1, $numberOfPosts";
 $result=mysqli_query($connection,$query);
 if(!$result){
     die("Failed".mysqli_error($connection));
 }
+$search_count=mysqli_num_rows($result);
+if($search_count==0){
+    echo "<h1> No result found</h1>";
+}
+else{
+    
 while($row=mysqli_fetch_assoc($result)){
 $job_id=$row['job_id'];
 $job_title=$row['job_title'];
@@ -139,6 +158,8 @@ $number = 1234.56;
 
                                 <?php
 }
+}
+}
 
 
 ?>
@@ -167,10 +188,10 @@ $number = 1234.56;
     for($i=1; $i < $count; $i++){
         // echo var_dump($total);
         if($i==$page){
-            echo "<li class='page-item'><a class='page-link active' href='job_listing.php?page={$i}'>{$i}</a></li>";
+            echo "<li class='page-item'><a class='page-link active' href='search.php.php?page={$i}'>{$i}</a></li>";
         }
         else{
-        echo "<li class='page-item'><a class ='page-link' href='job_listing.php?page={$i}'>{$i}</a></li>";
+        echo "<li class='page-item'><a class ='page-link' href='search.php?page={$i}'>{$i}</a></li>";
             
         }
     }
