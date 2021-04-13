@@ -16,19 +16,11 @@
    </div>
    <!-- Hero Area End -->
    <!--================Blog Area =================-->
-
- 
    <section class="blog_area single-post-area section-padding">
       <div class="container">
          <div class="row">
             <div class="col-lg-8 posts-list">
-
-
-
-
-            
 <?php
- 
  if(isset($_GET['p_id'])){
     $post_id=$_GET['p_id'];
 $query= "SELECT * FROM posts WHERE post_id = $post_id ";
