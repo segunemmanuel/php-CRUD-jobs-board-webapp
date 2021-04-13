@@ -149,7 +149,6 @@ while($row = mysqli_fetch_assoc($result)){
                            </div>
                            <div class="arrow">
                            <a href="single-blog.php?p_id=<?php echo $prev_post_id;?>">
-
                                  <span class="text-white lnr ti-arrow-right"></span>
                               </a>
                            </div>
