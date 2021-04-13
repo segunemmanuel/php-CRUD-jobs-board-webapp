@@ -2,20 +2,13 @@
 <?php include 'includes/navbar.php';?>
     </header>
     <main>
-
-
-
 <?php
-
 if(isset($_GET['source'])){
     $job_id=$_GET['source'];
-
 $query=mysqli_query($connection,"SELECT * FROM jobs WHERE job_id= {$job_id}");
-echo var_dump($query);
 if(!$query){
     die("Failed".mysqli_error($connection));
 }
-
 while($row=mysqli_fetch_assoc($query)){
 // $job_id=$row['job_id'];
 $job_title=$row['job_title'];
@@ -31,9 +24,6 @@ $number = 1234.56;
     $english_format_number = number_format($job_salary);
 
 }
-
-    
-    
 }
 ?>
     
