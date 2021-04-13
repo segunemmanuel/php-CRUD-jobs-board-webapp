@@ -50,13 +50,8 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="count-job mb-35">
-                                        <?php
-$query =mysqli_query($connection,"SELECT * FROM jobs");
-$numberOfjobs=mysqli_num_rows($query);
+                  
                                         
-                                        
-                                        ?>
-                                            <span><?php echo $numberOfjobs; ?> Jobs found</span>
                                             <!-- Select job items start -->
                                             <div class="select-job-items">
                                                 <span>Sort by</span>
@@ -92,9 +87,11 @@ if(isset($_GET['page'])){
 
  if(isset($_POST['find_jobs'])){
     $search = $_POST['search'];
+    $select =$_POST['location'];
+    
 
     
- $query="SELECT * FROM jobs  WHERE job_title LIKE '%$search%' ";
+ $query="SELECT * FROM jobs  WHERE job_title LIKE '%$search%' && job_location LIKE '%$select%' ";
  $rr=mysqli_query($connection,$query);
  $rrr=mysqli_num_rows($rr);
 $count=ceil($rrr/$numberOfPosts);
@@ -105,7 +102,7 @@ $count=ceil($rrr/$numberOfPosts);
 
 
 
-$query="SELECT * FROM jobs  WHERE job_title LIKE '%$search%' LIMIT $page_1, $numberOfPosts";
+$query="SELECT * FROM jobs  WHERE job_title LIKE '%$search%' && job_location LIKE '%$select%' LIMIT $page_1, $numberOfPosts";
 $result=mysqli_query($connection,$query);
 if(!$result){
     die("Failed".mysqli_error($connection));
@@ -113,9 +110,10 @@ if(!$result){
 $search_count=mysqli_num_rows($result);
 if($search_count==0){
     echo "<h1> No result found</h1>";
+    // header("Location: index.php");
 }
 else{
-    
+    echo "<span> $rrr  Jobs found</span> ";
 while($row=mysqli_fetch_assoc($result)){
 $job_id=$row['job_id'];
 $job_title=$row['job_title'];
@@ -143,7 +141,7 @@ $number = 1234.56;
                                             </a>
                                             <ul>
                                                 <li><?php echo $job_company; ?> </li>
-                                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
+                                                <li><i class="fas fa-map-marker-alt"></i><?php echo $job_location; ?></li>
                                                 <li><?php echo $english_format_number; ?></li>
                                             </ul>
                                         </div>
