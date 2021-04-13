@@ -98,19 +98,7 @@ while($row = mysqli_fetch_assoc($result)){
                   </div>
                   <div class="navigation-area">
                      <div class="row">
-                        <div
-                           class="flex-row col-lg-6 col-md-6 col-12 nav-left d-flex justify-content-start align-items-center">
-                           <div class="thumb">
-                              <a href="#">
-                                 <img class="img-fluid" src="assets/img/post/preview.png" alt="">
-                              </a>
-                           </div>
-                           <div class="arrow">
-                           <a href="single-blog.php?p_id=<?php echo $prev_post_id;?>">
-                                 <span class="text-white lnr ti-arrow-left"></span>
-                              </a>
-                           </div>
-
+                        <div class="flex-row col-lg-6 col-md-6 col-12 nav-left d-flex justify-content-start align-items-center">
                            <?php
                            $prev_post_id = $post_id-1;
                            $msg="";
@@ -123,6 +111,16 @@ while($row = mysqli_fetch_assoc($result)){
                               $new_prev_post=$row['post_title'];
                            }
                            ?>
+                             <div class="thumb">
+                              <a href="#">
+                                 <img class="img-fluid" src="assets/img/post/preview.png" alt="">
+                              </a>
+                           </div>
+                           <div class="arrow">
+                           <a href="single-blog.php?p_id=<?php echo $prev_post_id;?>">
+                                 <span class="text-white lnr ti-arrow-left"></span>
+                              </a>
+                           </div>
                            <div class="detials">
                            <p>Prev Post</p>
                            <a href="single-blog.php?p_id=<?php echo $prev_post_id;?>">
@@ -136,12 +134,18 @@ while($row = mysqli_fetch_assoc($result)){
                         <div  class="flex-row col-lg-6 col-md-6 col-12 nav-right d-flex justify-content-end align-items-center">
                            <?php
                            $next_post_id=$post_id + 1;
+                           $qry=mysqli_query($connection,"SELECT * FROM posts");
+                        $fuck= mysqli_num_rows($qry);
+                        if($next_post_id > $fuck){
+                           echo  "<h4> No new posts </h4>";
+
+                        }
+                        else{
                            $next_post=mysqli_query($connection,"SELECT * FROM posts WHERE post_id = $next_post_id");
                            while($row=mysqli_fetch_assoc($next_post)){
                               $new_next_post=$row['post_title'];
-                           }
-                           ?>
-                           <div class="detials">
+?>
+                              <div class="detials">
                               <p>Next Post</p>
                                    <a href="single-blog.php?p_id=<?php echo $next_post_id; ?>">
                                          <h4><?php echo $new_next_post;?></h4>
@@ -157,6 +161,12 @@ while($row = mysqli_fetch_assoc($result)){
                                  <img class="img-fluid" src="assets/img/post/next.png" alt="">
                               </a>
                            </div>
+                           <?php        }
+
+                   }
+
+                           ?>
+                         
                         </div>
                      </div>
                   </div>
@@ -253,13 +263,6 @@ while($row = mysqli_fetch_assoc($result)){
                      </div>
                   </div>
                </div>
-               
-
-
-
-
-
-               
                <div class="comment-form">
                   <h4>Leave a Reply</h4>
                   <form class="form-contact comment_form" action="#" id="commentForm">
@@ -292,12 +295,8 @@ while($row = mysqli_fetch_assoc($result)){
                   </form>
                </div>
             </div>
-
 <!-- end of posts -->
-
-
-            
- <?Php include 'includes/side-blog.php';?>
+ <?php include 'includes/side-blog.php';?>
          </div>
       </div>
    <!--================ Blog Area end =================-->
