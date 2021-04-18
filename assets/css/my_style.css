@@ -2,8 +2,6 @@
     display: none  !important;
 }
 
-
-
 .cv {
     display: inline-block;
     width: 20%;
@@ -16,4 +14,35 @@
     background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
     border-radius: 20px;
     background-size: 60px 60px;
+  }
+  /* css animations  */
+  @keyframes shift {
+0%{
+opacity: 0;
+transform: translateX(-100px);
+}      
+100%{
+opacity: 1;
+transform: translate(0);
+}
+  }
+
+  .slider-area .hero__caption h1{
+      animation:shift 2s ease-out;
+  }
+
+
+
+
+  .apply-process-area .single-process:hover{
+animation:appear 1s ease-out;
+  }
+
+  @keyframes appear {
+0%{
+opacity:0;
+}     
+100%{
+    opacity: 1;
+} 
   }

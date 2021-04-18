@@ -119,13 +119,7 @@
 <li>
 <a href="../index.php">Website Homepage</a>
 </li>
-
-
-                
             </ul>
-
-
-            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -135,7 +129,6 @@
                     <li>
                         <a href="categories.php"><i class="fa fa-fw fa-dashboard"></i>Job Categories</a>
                     </li>
-
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Jobs <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
@@ -148,7 +141,18 @@
                         </ul>
                     </li>
 
-                    
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#post_drop"><i class="fa fa-fw fa-arrows-v"></i> Posts <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="post_drop" class="collapse">
+                            <li>
+                                <a href="posts.php">View all posts</a>
+                            </li>
+                            <li>
+                                <a href="posts.php?source=add_posts">Add new post</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
                     </li>
@@ -175,7 +179,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="active">
+                    <li class="">
                         <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
                     </li>
                     <li>

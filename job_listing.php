@@ -75,7 +75,7 @@ $numberOfjobs=mysqli_num_rows($query);
                                 <!-- single-job-content -->
                                 
 <?php
-$numberOfPosts=4;
+$numberOfPosts= 18;
 if(isset($_GET['page'])){
     $page= $_GET['page'];
  }
@@ -92,6 +92,7 @@ if(isset($_GET['page'])){
  $rr=mysqli_query($connection,$query);
  $rrr=mysqli_num_rows($rr);
 $count=ceil($rrr/$numberOfPosts);
+
 $query="SELECT * FROM jobs LIMIT $page_1, $numberOfPosts";
 $result=mysqli_query($connection,$query);
 if(!$result){
@@ -106,7 +107,7 @@ $job_date=$row['job_date'];
 $job_salary=$row['job_salary'];
 $job_content=$row['job_content'];
 $job_type=$row['job_type'];
-// $job_image=$row['job_image'];
+$job_image=$row['job_image'];
 $number = 1234.56;
     $english_format_number = number_format($job_salary);
 
@@ -116,7 +117,7 @@ $number = 1234.56;
 <div class="single-job-items mb-30">
                                     <div class="job-items">
                                         <div class="company-img">
-                                            <a href="#"><img src="assets/img/icon/job-list1.png" alt=""></a>
+                                            <a href="#"><img src="./admin/images/<?php echo $job_image; ?>" width='70'  alt=""></a>
                                         </div>
                                         <div class="job-tittle job-tittle2">
                                             <a href="job_details.php?source=<?php echo $job_id; ?>">
