@@ -1,5 +1,7 @@
 <?php include 'includes/header.php';?>
 <?php include 'includes/navbar.php';?>
+<?php include 'includes/functions.php';?>
+
     <main>
         <!-- slider Area Start-->
         <div class="slider-area ">
@@ -56,7 +58,7 @@ while($row=mysqli_fetch_array($result)){
                                 <span class="flaticon-tour"></span>
                             </div>
                             <div class="services-cap">
-                               <h5><a href="job_listing.html"><?php echo $cat_title; ?> </a></h5>
+                               <h5><a href="cat_job_listing.php?source=<?php echo $cat_id;?>"><?php echo $cat_title; ?> </a></h5>
                                 <span>(653)</span>
                             </div>
                         </div>
@@ -86,23 +88,7 @@ while($row=mysqli_fetch_array($result)){
                             <p class="pera1">FEATURED TOURS Packages</p>
                             <p class="pera2"> Make a Difference with Your Online Resume!</p>
 <?php
-if(isset($_POST['upload'])){
-    $file = $_FILES['cv']['name'];
-    $post_file_temp=$_FILES['cv']['tmp_name'];
-    $size = $_FILES['cv']['size'];
-    move_uploaded_file($post_file_temp,"uploads/$file");
-    
-$query= "INSERT INTO files(name,size)";
-$query.="VALUES('{$file}','{$size}')";
-$result=mysqli_query($connection,$query);
-if(!$result){
-    die("Error".mysqli_error($connection));
-}
-else{
-    echo "<script> alert('Upload succesful')</script>";
-}  
-header("Location:index.php");
-}
+uploadCV();
 ?>
 <form action="index.php" method="post" enctype="multipart/form-data">
  <input type="file" name="cv" class="cv" placeholder="Upload Your CV">
@@ -297,6 +283,5 @@ header("Location:index.php");
         <!-- Blog Area Start -->
    <?php include 'includes/home-posts.php';?>
         <!-- Blog Area End -->
-
     </main>
 <?php include 'includes/footer.php';?>
