@@ -46,7 +46,7 @@ if(!$result){
 while($row=mysqli_fetch_array($result)){
     $cat_id=$row['cat_id'];
     $cat_title=$row['cat_title'];
-echo     "<li><a href='category.php?cat=$cat_id'>$cat_title</a></li>";
+echo     "<li><a href='cat_job_listing.php?source=$cat_id'>$cat_title</a></li>";
 }
 ?>
                                                 </ul>

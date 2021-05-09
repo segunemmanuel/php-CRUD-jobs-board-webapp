@@ -16,7 +16,7 @@ if(isset($_POST['create_job'])){
     $query.="VALUES ('{$job_title}','{$job_category_id}','{$job_company}','{$job_location}', now(), '{$job_salary}','{$job_image}','{$job_content}','{$job_type}','{$job_status}') ";
 $result=mysqli_query($connection,$query);
 if(!$result){
-    die("Failed".mysqli_error("$connection"));
+    die("Failed".mysqli_error($connection));
 }
 $job_id= mysqli_insert_id($connection );
 echo "<p class='bg-success'> Job added:" . " ". "<a href='../jobs.php?c_id={$job_id}'>View job </a>or <a href='jobs.php'>Edit More </a> </p>";
@@ -32,7 +32,6 @@ echo "<p class='bg-success'> Job added:" . " ". "<a href='../jobs.php?c_id={$job
 </div>
 <div class="form-group">
     <label for="my-input">Category</label>
-
 <select name="category" id="" class="form-control">
 <option value=""> </option>
     <?php
@@ -44,7 +43,7 @@ if(!$result){
 while($row=mysqli_fetch_array($result)){
     $cat_id=$row['cat_id'];
     $cat_title=$row['cat_title'];
-    echo "<option value=''>{$cat_title}</option>";
+    echo "<option value='{$cat_id}'>{$cat_title}</option>";
 }
 ?>
 </select> 
