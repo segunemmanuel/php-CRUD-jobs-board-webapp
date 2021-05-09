@@ -29,11 +29,7 @@
                     <div class="col-lg-10">
                         <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
                             <div class="row">
-                                <div class="col-12">
-                                    <!-- <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
-                                    </div> -->
-                                </div>
+                              
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your full names'" placeholder="Enter your full names">
@@ -55,20 +51,41 @@
                                             <option value="">Masters</option>
                                             <option value="">PhD</option>
                                         </select>
-                                        <!-- <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name"> -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                        <input class="form-control valid" name="years" id="email" type="number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter work experience'" placeholder="Number of years of experience">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                    <select class="mb-3 form-select form-select-lg" aria-label=".form-select-lg example">
+                                        <option selected>Enter availability</option>
+                                            <option value="">Full time</option>
+                                            <option value="">Part time</option>
+                                            <option value="">Contract</option>
+                                            <option value="">Remote</option>
+                                        </select>
+
                                     </div>
                                 </div>
 
 
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input class="form-control valid" name="years" id="email" type="phone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your phone number'" placeholder="Enter your phone number">
+                                    </div>
+                                </div>
 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
+                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Cover letter'" placeholder="Cover letter"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input class="form-control" name="subject" id="subject" type="file" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Upload your CV'" placeholder="Upload your CV">
                                     </div>
                                 </div>
                             </div>
