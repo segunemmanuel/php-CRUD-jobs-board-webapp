@@ -1,3 +1,25 @@
+<?php
+
+
+if(isset($_POST['submit'])){
+$job_id=$_GET['apply'];
+$user_id=rand();
+$fullname=$_POST['fullname'];
+$email=$_POST['email'];
+$education=$_POST['education'];
+$years=$_POST['years'];
+$ava=$_POST['ava'];
+$phone=$_POST['phone'];
+$msg=$_POST['msg'];
+$cv=$_POST['cv'];
+$query= "INSERT INTO jobs_apply() ";
+
+
+}
+?>
+
+
+
 <div class="col-lg-10">
 <form class="form-contact contact_form" action="apply.php" method="post"  enctype="multipart/form-data">
 <div class="row">
@@ -62,7 +84,7 @@
 </div>
 </div>
 <div class="mt-3 form-group">
-<button type="submit" class="button button-contactForm boxed-btn">Submit</button>
+<button type="submit" name="submit" class="button button-contactForm boxed-btn">Submit</button>
 </div>
 </form>
 </div>

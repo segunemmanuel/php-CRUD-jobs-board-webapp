@@ -69,9 +69,11 @@
 
 
 
-
-                            if($_GET['apply'] > max($job_id)){
-                                header("location:job-listing.php");
+                            $sql=mysqli_query($connection,"SELECT * FROM jobs");
+                            $jobs_id=mysqli_num_rows($sql);
+                            // echo $jobs_id;
+                            if($_GET['apply'] >$jobs_id){
+                                header("location:404.php");
 
                             }
                               ?>
