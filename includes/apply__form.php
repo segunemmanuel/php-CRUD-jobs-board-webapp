@@ -1,6 +1,5 @@
 <?php
 
-
 if(isset($_POST['submit'])){
 $job_id=$_GET['apply'];
 $user_id=rand();
