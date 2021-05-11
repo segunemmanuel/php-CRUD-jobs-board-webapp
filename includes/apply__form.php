@@ -10,10 +10,12 @@ $years=$_POST['years'];
 $ava=$_POST['ava'];
 $phone=$_POST['phone'];
 $msg=$_POST['msg'];
-$cv=$_POST['cv'];
-$query= "INSERT INTO jobs_apply() ";
+$cv=$_FILES['cv']['name'];
+$cv_temp=$_FILES['cv']['tmp_name'];
+move_uploaded_file($cv_temp,"./images/$cv");
 
-
+$query= "INSERT INTO jobs_apply(user_job_id,job_apply_name,job_apply_email,job_apply_edu,job_work_exp,job_apply_availability,job_apply_phone,job_apply_id,job_apply_cv,cv,job_apply_date,)";
+$query.="VALUES($user_id,'{$fullname}','{$email}','{$education}','{$years}','{$ava}','{$phone}','{$msg}','{$cv}',$phone, $job_id,'{$msg}'now())";
 }
 ?>
 
