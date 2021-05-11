@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['submit'])){
 $job_id=$_GET['apply'];
 $user_id=rand();
@@ -15,7 +14,13 @@ $cv_temp=$_FILES['cv']['tmp_name'];
 move_uploaded_file($cv_temp,"./images/$cv");
 
 $query= "INSERT INTO jobs_apply(user_job_id,job_apply_name,job_apply_email,job_apply_edu,job_work_exp,job_apply_availability,job_apply_phone,job_apply_id,job_apply_cv,cv,job_apply_date,)";
-$query.="VALUES($user_id,'{$fullname}','{$email}','{$education}','{$years}','{$ava}','{$phone}','{$msg}','{$cv}',$phone, $job_id,'{$msg}'now())";
+$query.="VALUES($user_id,'{$fullname}','{$email}','{$education}','{$years}','{$ava}','{$phone}','{$msg}','{$cv}',$phone, $job_id,'{$msg}', '{$cv}', now())";
+
+$create_job=mysqli_query($connection,$query);
+if(!$create_job){
+    die("error".mysqli_error($connection));
+}
+    
 }
 ?>
 
