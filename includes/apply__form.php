@@ -1,7 +1,8 @@
 <?php
+
 if(isset($_POST['submit'])){
 $job_id=$_GET['apply'];
-$user_id=rand();
+$user_id=2;
 $fullname=$_POST['fullname'];
 $email=$_POST['email'];
 $education=$_POST['education'];
@@ -16,6 +17,7 @@ move_uploaded_file($cv_temp,"./images/$cv");
 $query= "INSERT INTO jobs_apply(user_job_id,job_apply_name,job_apply_email,job_apply_edu,job_work_exp,job_apply_availability,job_apply_phone,job_apply_id,job_apply_cv,cv,job_apply_date,)";
 $query.="VALUES($user_id,'{$fullname}','{$email}','{$education}','{$years}','{$ava}','{$phone}','{$msg}','{$cv}',$phone, $job_id,'{$msg}', '{$cv}', now())";
 
+echo var_dump($query);
 $create_job=mysqli_query($connection,$query);
 if(!$create_job){
     die("error".mysqli_error($connection));
@@ -27,7 +29,7 @@ if(!$create_job){
 
 
 <div class="col-lg-10">
-<form class="form-contact contact_form" action="apply.php" method="post"  enctype="multipart/form-data">
+<form class="form-contact contact_form" action="" method="post"  enctype="multipart/form-data">
 <div class="row">
 
 <div class="col-sm-6">
