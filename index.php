@@ -130,9 +130,6 @@ uploadCV();
     </div>
             </div>
             </div>
-
-
-        
         <!-- Featured_job_end -->
         <!-- How  Apply Process Start-->
         <div class="apply-process-area apply-bg pt-150 pb-150" data-background="assets/img/gallery/how-applybg.png">
