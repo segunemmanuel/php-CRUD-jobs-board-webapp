@@ -3,6 +3,12 @@
 <body>
   <!-- Sidenav -->
   <?php include "includes/dash-nav.php"?>
+<?php
+
+session_start();
+?>
+
+
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
@@ -60,7 +66,7 @@
                       <div class="col ml--2">
                         <div class="d-flex justify-content-between align-items-center">
                           <div>
-                            <h4 class="mb-0 text-sm">John Snow</h4>
+                            <h4 class="mb-0 text-sm"><?php echo $_SESSION['username'];?></h4>
                           </div>
                           <div class="text-right text-muted">
                             <small>2 hrs ago</small>
