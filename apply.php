@@ -1,5 +1,6 @@
 <?php include 'includes/header.php';?>
 <?php include 'includes/navbar.php';?>
+<?php session_start(); ?>
     <main>
         <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
@@ -28,8 +29,6 @@
                     </div>
                     <!-- Application -->
                     <?php include "includes/apply__form.php"?>
-                  
-              
                 </div>
                     </div>
                     <!-- Right Content -->
@@ -45,7 +44,9 @@
                                   $job_id=$_GET['apply'];
                                   $query=mysqli_query($connection,"SELECT * FROM jobs WHERE job_id= {$job_id}");
                                   if(!$query){
-                                      die("Failed".mysqli_error($connection));
+                                    //   die("Failed".mysqli_error($connection));
+                                      header("location: 404.php");
+                                      exit;
                                   }
                                   while($row=mysqli_fetch_assoc($query)){
                                   // $job_id=$row['job_id'];
@@ -63,20 +64,22 @@
                               }
                             }
 
-                            else if(!isset($_GET['apply'])){
-                                header("location:index.php");
-                            }
-
-
-
-                            $sql=mysqli_query($connection,"SELECT * FROM jobs");
-                            $jobs_id=mysqli_num_rows($sql);
-                            // echo $jobs_id;
-                            if($_GET['apply'] >$jobs_id){
-                                header("location:404.php");
+                            else if(!(isset($_GET['apply']))){
+                                header("location: 404.php");
+                                exit;
 
                             }
+
+
+
+                           
                               ?>
+
+
+
+                      
+
+
                               <li>Title : <span><?php  echo $job_title; ?></span></li>
                               <li>Posted date : <span><?php echo $job_date; ?></span></li>
                               <li>Location : <span><?php echo $job_location;?></span></li>

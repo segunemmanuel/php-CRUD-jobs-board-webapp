@@ -70,8 +70,10 @@ echo     "<li><a href='cat_job_listing.php?source=$cat_id'>$cat_title</a></li>";
                                 </div>          
                                 <!-- Header-btn -->
                                 <div class="header-btn d-none f-right d-lg-block">
-                                    <a href="#" class="btn head-btn1">Register</a>
-                                    <a href="#" class="btn head-btn2">Login</a>
+                                    <a href="user/examples/register.php" class="btn head-btn1">Register</a>
+                                    <a href="user/examples/login.php" class="btn head-btn2">Login</a>
+
+                                    <!-- <a href="#" class="btn head-btn2">Login</a> -->
                                 </div>
                             </div>
                         </div>
@@ -85,3 +87,5 @@ echo     "<li><a href='cat_job_listing.php?source=$cat_id'>$cat_title</a></li>";
        </div>
         <!-- Header End -->
     </header>
+
+
