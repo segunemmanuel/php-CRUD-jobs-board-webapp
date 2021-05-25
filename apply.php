@@ -1,6 +1,5 @@
 <?php include 'includes/header.php';?>
 <?php include 'includes/navbar.php';?>
-<?php session_start(); ?>
     <main>
         <div class="slider-area ">
         <div class="single-slider section-overly slider-height2 d-flex align-items-center" data-background="assets/img/hero/about.jpg">
@@ -41,6 +40,9 @@
                           <ul>
                               <?php
                               if(isset($_GET['apply'])){
+
+
+                                
                                   $job_id=$_GET['apply'];
                                   $query=mysqli_query($connection,"SELECT * FROM jobs WHERE job_id= {$job_id}");
                                   if(!$query){

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+<?php echo $_SESSION['name']; ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>

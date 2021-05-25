@@ -1,7 +1,4 @@
 <?php include "includes/header.php";?>
-
-
-
 <body class="bg-default">
   <!-- Navbar -->
   <?php include "includes/nav.php";?>
@@ -48,7 +45,40 @@
             <?php
 
 if(isset($_POST['submit'])){
-loginUser();
+  $user=mysqli_real_escape_string($connection,$_POST['username']);
+  $pass=mysqli_real_escape_string($connection,$_POST['password']);
+  
+  if(empty($user)){
+  echo "Empty";
+  }
+  
+  else{
+  $query="SELECT * FROM users WHERE name='{$user}' ";
+  $result=mysqli_query($connection,$query);
+  if(!$result){
+  die("Failed". mysqli_error($connection));
+  }
+  while($row=mysqli_fetch_array($result)){
+      $username=$row['name'];
+      $password=$row['password'];
+      $email=$row['email'];
+      $id=$row['id'];
+  }
+  
+if ($user == $username){
+  $_SESSION['name']= $username;
+  $_SESSION['password']= $password;
+  $_SESSION['email']= $email;
+
+  
+  header("Location: dashboard.php");
+  }
+   else if($user!=$username){
+  header("Location: login.php");
+  
+  }
+  
+  }
 
 }
 
