@@ -100,7 +100,7 @@
 if(isset($_SESSION['name'])){
 
 
-$query="SELECT * FROM users WHERE name = '' ";
+$query="SELECT * FROM users WHERE name = '{$_SESSION['name']}' ";
  
 
 

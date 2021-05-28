@@ -1,5 +1,4 @@
 <?php  include "includes/header.php"?>
-
 <body>
   <!-- Sidenav -->
   <?php include "includes/dash-nav.php"?>
@@ -7,8 +6,6 @@
   <div class="main-content" id="panel">
     <!-- Topnav -->
   <?php include "includes/nav.php"?>
-
-   
     <!-- Header -->
     <!-- Header -->
     <div class="pb-6 header d-flex align-items-center" style="min-height: 500px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
@@ -96,7 +93,7 @@
             <?php
 
 if(isset($_SESSION['name'])){
-$query="SELECT * FROM users WHERE name = '' ";
+$query="SELECT * FROM users WHERE name = '{$_SESSION['name']}' ";
 $result= mysqli_query($connection, $query);
 if(!$result){
   die("Error".  mysqli_error($connection));
@@ -145,7 +142,7 @@ $query.="postal= '{$postals}', ";
 $query.="city= '{$citys}', ";
 $query.="country= '{$countrys}', ";
 $query.="about= '{$abouts}' ";
-$query.="WHERE name ='' ";
+$query.="WHERE name ='{$_SESSION['name']}' ";
 $update_user_query=mysqli_query($connection,$query);
 if(!$update_user_query){
     die("Error".mysqli_error($connection));
