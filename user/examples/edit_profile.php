@@ -96,17 +96,7 @@
             <?php
 
 if(isset($_SESSION['name'])){
-
-    if(isset($_GET['edit']))
-    {
-
-
-
-$query="SELECT * FROM users WHERE name = '{$_SESSION['name']}' ";
- 
-
-
-
+$query="SELECT * FROM users WHERE name = '' ";
 $result= mysqli_query($connection, $query);
 if(!$result){
   die("Error".  mysqli_error($connection));
@@ -131,30 +121,36 @@ else
 {
     header("location: 404.php");
 }
-}
 
 ?>
 
 <?php
-
 if(isset($_POST['submit'])){
-    $username=$_POST['username'];
-    $email=$_POST['email'];
-    $firstname=$_POST['firstname'];
-    $lastname=$_POST['lastname'];
-    $address=$_POST['address'];
-    $city=$_POST['city'];
-    $country=$_POST['country'];
-    $postal=$_POST['postal'];
-    $about=$_POST['about'];
-
-
-echo $about;
-
-
-
-
-
+    $user=$_POST['username'];
+    $emails=$_POST['email'];
+    $firstnames=$_POST['firstname'];
+    $lastnames=$_POST['lastname'];
+    $addresss=$_POST['address'];
+    $citys=$_POST['city'];
+    $countrys=$_POST['country'];
+    $postals=$_POST['postal'];
+    $abouts=$_POST['about'];
+    
+$query="UPDATE users SET ";
+$query.="first_name='{$firstnames}', ";
+$query.="last_name= '{$lastnames}', ";
+$query.="address='{$addresss}', ";
+$query.="email= '{$emails}', ";
+$query.="postal= '{$postals}', ";
+$query.="city= '{$citys}', ";
+$query.="country= '{$countrys}', ";
+$query.="about= '{$abouts}' ";
+$query.="WHERE name ='' ";
+$update_user_query=mysqli_query($connection,$query);
+if(!$update_user_query){
+    die("Error".mysqli_error($connection));
+}
+header("Location:profile.php"); exit;
 }
 
 
@@ -170,7 +166,7 @@ echo $about;
 <div class="col-lg-6">
 <div class="form-group">
 <label class="form-control-label" for="input-username">Username</label>
-<input type="text" id="input-username"  name="username" class="form-control" placeholder="Username" value="<?php echo $username; ?>">
+<input type="text" id="input-username"  disabled name="username" class="form-control" placeholder="Username" value="<?php echo $username; ?>">
 </div>
 </div>
 <div class="col-lg-6">
