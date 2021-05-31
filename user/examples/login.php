@@ -65,7 +65,7 @@ if(isset($_POST['submit'])){
       $id=$row['id'];
   }
   
-if ($user == $username){
+if($user == $username){
   $_SESSION['name']= $username;
   $_SESSION['password']= $password;
   $_SESSION['email']= $email;

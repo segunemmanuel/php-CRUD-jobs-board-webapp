@@ -1,5 +1,9 @@
 
 <nav class="bg-white sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light" id="sidenav-main">
+<?php if(!(isset($_SESSION['name']))){
+  
+  header("location: login.php");
+ }  ?>
     <div class="scrollbar-inner">
       <!-- Brand -->
       <div class="sidenav-header align-items-center">
