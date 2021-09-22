@@ -30,54 +30,7 @@
         </div>
         <!-- slider Area End-->
         <!-- Our Services Start -->
-        <div class="our-services section-pad-t30">
-            <div class="container">
-                <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center section-tittle">
-                            <span>FEATURED TOURS Packages</span>
-                            <h2>Browse Top Categories </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row d-flex justify-contnet-center">
-                <?php
-$query="SELECT * FROM category";
-$result=mysqli_query($connection,$query);
-if(!$result){
-    die("Connection failed". mysqli_error($connection));
-}
-while($row=mysqli_fetch_array($result)){
-    $cat_id=$row['cat_id'];
-    $cat_title=$row['cat_title'];
-?>
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                        <div class="text-center single-services mb-30">
-                            <div class="services-ion">
-                                <span class="flaticon-tour"></span>
-                            </div>
-                            <div class="services-cap">
-                               <h5><a href="cat_job_listing.php?source=<?php echo $cat_id;?>"><?php echo $cat_title; ?> </a></h5>
-                                <span>(653)</span>
-                            </div>
-                        </div>
-                    </div>
-<?php
-}
-?>
-                </div>
-                <!-- More Btn -->
-                <!-- Section Button -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center browse-btn2 mt-50">
-                            <a href="job_listing.html" class="border-btn2">Browse All Sectors</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  
         <!-- Our Services End -->
         <!-- Online CV Area Start -->
          <div class="online-cv cv-bg section-overly pt-90 pb-120"  data-background="assets/img/gallery/cv_bg.jpg">
@@ -183,68 +136,7 @@ uploadCV();
         </div>
         <!-- How  Apply Process End-->
         <!-- Testimonial Start -->
-        <div class="testimonial-area testimonial-padding">
-            <div class="container">
-                <!-- Testimonial contents -->
-                <div class="row d-flex justify-content-center">
-                    <div class="col-xl-8 col-lg-8 col-md-10">
-                        <div class="h1-testimonial-active dot-style">
-                            <!-- Single Testimonial -->
-                            <div class="text-center single-testimonial">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder ">
-                                        <div class="founder-img mb-30">
-                                            <img src="assets/img/testmonial/testimonial-founder.png" alt="">
-                                            <span>Margaret Lawson</span>
-                                            <p>Creative Director</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="text-center single-testimonial">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder ">
-                                        <div class="founder-img mb-30">
-                                            <img src="assets/img/testmonial/testimonial-founder.png" alt="">
-                                            <span>Margaret Lawson</span>
-                                            <p>Creative Director</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Single Testimonial -->
-                            <div class="text-center single-testimonial">
-                                <!-- Testimonial Content -->
-                                <div class="testimonial-caption ">
-                                    <!-- founder -->
-                                    <div class="testimonial-founder ">
-                                        <div class="founder-img mb-30">
-                                            <img src="assets/img/testmonial/testimonial-founder.png" alt="">
-                                            <span>Margaret Lawson</span>
-                                            <p>Creative Director</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-top-cap">
-                                        <p>“I am at an age where I just want to be fit and healthy our bodies are our responsibility! So start caring for your body and it will care for you. Eat clean it will care for you and workout hard.”</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+   <!-- remogved  -->
         <!-- Testimonial End -->
          <!-- Support Company Start-->
          <div class="support-company-area support-padding fix">
@@ -278,7 +170,7 @@ uploadCV();
         </div>
         <!-- Support Company End-->
         <!-- Blog Area Start -->
-   <?php include 'includes/home-posts.php';?>
+  
         <!-- Blog Area End -->
     </main>
 <?php include 'includes/footer.php';?>
